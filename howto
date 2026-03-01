@@ -1,0 +1,35 @@
+# 基本的な使い方
+python anomaly_detection.py --input_dir ./images --output_dir ./results
+
+# オプション指定例
+python anomaly_detection.py \
+  --input_dir ./images \
+  --output_dir ./results \
+  --method both \
+  --contamination 0.3 \
+  --crop_size 128 \
+  --umap_neighbors 15 \
+  --min_cluster_size 2
+```
+
+---
+
+## 主なオプション
+
+| オプション | デフォルト | 説明 |
+|-----------|-----------|------|
+| `--method` | both | `isolation_forest` / `lof` / `both`（多数決） |
+| `--contamination` | 0.3 | 異常とみなす割合（増やすと異常が増える） |
+| `--crop_size` | 128 | クロップサイズ（px） |
+| `--min_cluster_size` | 2 | クラスタの最小サイズ |
+
+---
+
+## 出力ファイル
+```
+results/
+　├─ umap_scatter.png          ← UMAP散布図（クラスタ色分け）
+　├─ cluster_00_thumbnails.png ← クラスタ0の異常画像一覧
+　├─ cluster_01_thumbnails.png ← クラスタ1の異常画像一覧
+　├─ noise_thumbnails.png      ← どのクラスタにも属さない画像
+　└─ summary.txt               ← テキストサマリー
