@@ -1,6 +1,7 @@
 # 基本的な使い方
 python anomaly_detection.py --input_dir ./images --output_dir ./results
 
+画像が少ない（3〜10枚程度）場合は--min_cluster_size 2、--contaminationを調整してください。CLIPのダウンロードは初回のみ約600MBかかります。
 # オプション指定例
 python anomaly_detection.py \
   --input_dir ./images \
